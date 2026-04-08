@@ -204,7 +204,9 @@ export default function Home() {
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-lg">
         <div className="nav-pill px-4 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#ccff00] border-2 border-[#0a0a0a] rounded-full flex items-center justify-center font-display font-bold text-sm shadow-[2px_2px_0px_#000000]">🍎</div>
+            <div className="w-8 h-8 bg-[#ccff00] border-2 border-[#0a0a0a] rounded-full flex items-center justify-center font-display font-bold text-sm shadow-[2px_2px_0px_#000000] overflow-hidden">
+              <img src="/images/logo-menu.png" alt="Super Lanchinhos logo" className="w-[90%] h-[90%] object-contain" />
+            </div>
             <span className="font-display font-bold text-sm lowercase hidden sm:block">super lanchinhos</span>
           </div>
           <button onClick={scrollToOffer} className="bg-[#0a0a0a] text-white px-4 py-1.5 rounded-full font-display font-bold text-xs lowercase border-2 border-[#0a0a0a] shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 transition-all duration-300 wobble-hover">
