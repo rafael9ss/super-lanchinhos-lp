@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- DNS prefetch for external domains -->
+  <link rel="dns-prefetch" href="https://www.clarity.ms" />
+  <link rel="dns-prefetch" href="https://cdn.utmify.com.br" />
+  <link rel="dns-prefetch" href="https://scripts.converteai.net" />
+  <link rel="preconnect" href="https://scripts.converteai.net" crossorigin />
+
+  <!-- Google Fonts — Space Grotesk + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=DM+Sans:wght@400;500&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet" />
+  </noscript>
+
+  <title>Super Lanchinhos — Receitas Saudáveis e Irresistíveis para a Lancheira Escolar</title>
+  <meta name="description"
+    content="O guia definitivo com receitas fáceis, saudáveis e deliciosas para as mães prepararem lanches incríveis para seus filhos levarem para a escola." />
+
+  <!-- Microsoft Clarity — deferred to idle to not block initial paint -->
+  <script type="text/javascript">
+    function _loadClarity() {
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "v7kqiem1jo");
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(_loadClarity, { timeout: 3000 });
+    } else {
+      setTimeout(_loadClarity, 2000);
+    }
+  </script>
+
+  <!-- UTMify UTMs -->
+  <script id="utmify-utms" async defer src="https://cdn.utmify.com.br/scripts/utms/latest.js"></script>
+
+  <script>
+    // =========================================
+    // CONFIG
+    // =========================================
+    window.pixelId = "690d203f78c9e67561d48b87";
+
+    // =========================================
+    // 1) Loads Pixel only after app mounts (SPA/React safe)
+    // =========================================
+    function loadUtmifyPixel() {
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+      document.head.appendChild(s);
+    }
+
+    function waitForAppThenLoadPixel() {
+      var start = Date.now();
+
+      (function check() {
+        var root = document.querySelector("#root");
+        var rootHasContent = !!(root && root.children && root.children.length);
+        var clickableCount = document.querySelectorAll("button, a[href]").length;
+
+        if ((rootHasContent && clickableCount >= 10) || Date.now() - start > 3000) {
+          loadUtmifyPixel();
+          return;
+        }
+        requestAnimationFrame(check);
+      })();
+    }
+
+    (function bootstrapTracking() {
+      var utms = document.getElementById("utmify-utms");
+      if (utms) {
+        utms.addEventListener("load", function () {
+          setTimeout(waitForAppThenLoadPixel, 0);
+        });
+        utms.addEventListener("error", function () {
+          waitForAppThenLoadPixel();
+        });
+      } else {
+        window.addEventListener("load", waitForAppThenLoadPixel);
+      }
+    })();
+
+    // =========================================
+    // 2) Persist UTMs on links
+    // =========================================
+    (function persistParamsOnLinks() {
+      var params = new URLSearchParams(location.search);
+      if (!params || !params.toString()) return;
+
+      var keep = [
+        "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term",
+        "fbclid", "gclid", "ttclid", "wbraid", "gbraid",
+        "src", "sck", "xcod", "subid", "subid2",
+      ];
+
+      function shouldDecorate(href) {
+        if (!href) return false;
+        if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:"))
+          return false;
+        return true;
+      }
+
+      function decorate(a) {
+        try {
+          var href = a.getAttribute("href");
+          if (!shouldDecorate(href)) return;
+          var url = new URL(href, location.origin);
+          keep.forEach(function (k) {
+            var v = params.get(k);
+            if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
+          });
+          a.setAttribute("href", url.toString());
+        } catch (e) { }
+      }
+
+      function scan() {
+        document.querySelectorAll("a[href]").forEach(decorate);
+      }
+
+      var scheduled = false;
+      function scheduleScan() {
+        if (scheduled) return;
+        scheduled = true;
+        requestAnimationFrame(function () {
+          scheduled = false;
+          scan();
+        });
+      }
+
+      scan();
+      new MutationObserver(scheduleScan).observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <!-- Vite/React entry -->
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Removed VTurb Delay Script as requested -->
+</body>
+
+</html>

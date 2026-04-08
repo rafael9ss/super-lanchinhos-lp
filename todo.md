@@ -1,0 +1,3 @@
+- [ ] Adicionar botão CTA extra entre Depoimentos e Seção de Segurança
+- [ ] Criar nova seção de Bônus acima da Oferta Especial
+- [ ] Atualizar lista de bônus com preços riscados e valor zero
