@@ -5,7 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Check, ShieldCheck, Lock, AlertTriangle, Sparkles, Heart, Clock3, Salad, CalendarDays, Apple } from "lucide-react";
+import { Check, ShieldCheck, Lock, AlertTriangle, Sparkles, Heart, Clock3, Salad, CalendarDays, Apple, X } from "lucide-react";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { CTAButton } from "@/components/CTAButton";
 import { motion, useInView } from "framer-motion";
@@ -93,6 +93,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 /*           MAIN HOME COMPONENT          */
 /* ══════════════════════════════════════ */
 export default function Home() {
+  const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
+
   const scrollToOffer = () => {
     const el = document.getElementById("oferta");
     if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
@@ -578,7 +580,7 @@ export default function Home() {
                     <p className="text-gray-400 text-xs mt-1">Ou 12x de R$ 1,85</p>
                   </div>
 
-                  <CTAButton href="https://payfast.greenn.com.br/redirect/265359" variant="white" className="w-full">
+                  <CTAButton onClick={() => setIsOfferModalOpen(true)} variant="white" className="w-full">
                     QUERO SOMENTE O BÁSICO
                   </CTAButton>
 
@@ -760,6 +762,65 @@ export default function Home() {
           </p>
         </div>
       </footer>
+      {/* ====== MODAL UPSELL ====== */}
+      <div className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0a0a0a]/80 backdrop-blur-sm transition-all duration-300 ${isOfferModalOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+        <div className={`bg-white border-4 border-[#0a0a0a] rounded-3xl w-full max-w-lg shadow-[8px_8px_0px_#000000] overflow-hidden flex flex-col max-h-[90vh] transition-transform duration-300 ${isOfferModalOpen ? "scale-100" : "scale-95"}`}>
+          {/* Header */}
+          <div className="bg-[#ccff00] border-b-4 border-[#0a0a0a] p-4 flex justify-between items-center">
+            <h3 className="font-display font-bold text-xl uppercase">Antes de continuar</h3>
+            <button onClick={() => setIsOfferModalOpen(false)} className="bg-white border-2 border-[#0a0a0a] p-1 rounded-full shadow-[2px_2px_0px_#000000] hover:-translate-y-0.5 transition-transform"><X className="w-5 h-5"/></button>
+          </div>
+
+          {/* Body */}
+          <div className="p-6 md:p-8 overflow-y-auto">
+            <p className="font-bold text-lg md:text-xl leading-tight mb-3">
+              Por R$ 10 a mais, você leva <span className="text-[#ff0099]">muito mais do que receitas.</span>
+            </p>
+            <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+              O plano básico é ótimo. Mas o <strong className="text-[#0a0a0a]">Plano Completo</strong> foi feito para a mãe que quer resolver a alimentação do filho de vez — não só ter ideias de lanche.
+            </p>
+
+            {/* Table */}
+            <div className="border-4 border-[#0a0a0a] rounded-2xl overflow-hidden mb-6">
+              <div className="grid grid-cols-2 bg-[#f5f5f5] text-center font-display font-bold text-[10px] uppercase tracking-wider">
+                <div className="p-2 border-r-4 border-b-4 border-[#0a0a0a]">Plano básico</div>
+                <div className="p-2 border-b-4 border-[#0a0a0a] bg-[#ccff00]">Plano completo</div>
+              </div>
+              
+              <div className="grid grid-cols-2 text-center text-[11px] md:text-xs">
+                <div className="p-3 border-r-4 border-b-4 border-[#0a0a0a] flex items-center justify-center text-gray-500 font-medium leading-tight">Receitas de lanches saudáveis</div>
+                <div className="p-3 border-b-4 border-[#0a0a0a] bg-[#ccff00]/10 flex items-center justify-center font-bold leading-tight">Receitas de lanches saudáveis</div>
+                
+                <div className="p-3 border-r-4 border-b-4 border-[#0a0a0a] flex items-center justify-center text-gray-400">—</div>
+                <div className="p-3 border-b-4 border-[#0a0a0a] bg-[#ccff00]/10 flex items-center justify-center font-bold leading-tight">Cardápio semanal pronto</div>
+
+                <div className="p-3 border-r-4 border-b-4 border-[#0a0a0a] flex items-center justify-center text-gray-400">—</div>
+                <div className="p-3 border-b-4 border-[#0a0a0a] bg-[#ccff00]/10 flex items-center justify-center font-bold leading-tight">Guia anti-seletividade alimentar</div>
+
+                <div className="p-3 border-r-4 border-b-4 border-[#0a0a0a] flex items-center justify-center text-gray-400">—</div>
+                <div className="p-3 border-b-4 border-[#0a0a0a] bg-[#ccff00]/10 flex items-center justify-center font-bold leading-tight">Suquinhos e doces saudáveis</div>
+
+                <div className="p-3 border-r-4 border-[#0a0a0a] flex items-center justify-center text-gray-400">—</div>
+                <div className="p-3 bg-[#ccff00]/10 flex items-center justify-center font-bold leading-tight">Guia de montagem de lancheiras</div>
+              </div>
+            </div>
+
+            <div className="text-center mb-6">
+              <p className="text-sm text-gray-500 line-through mb-1">De R$ 37,90 por R$ 27,90</p>
+              <p className="text-lg font-bold font-display uppercase bg-[#ff0099] text-white inline-block px-4 py-1.5 rounded-full border-2 border-[#0a0a0a] shadow-[2px_2px_0px_#000000] -rotate-2">só R$ 10 a mais</p>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <CTAButton href="https://pay.wiapy.com/tpMyTiuVl" variant="acid" className="w-full !px-3 md:!px-4">
+                Quero o plano completo por R$ 27,90
+              </CTAButton>
+              <a href="https://pay.wiapy.com/cUChn5mjNW" className="text-center text-xs font-bold text-gray-500 underline underline-offset-2 hover:text-[#0a0a0a] transition-colors">
+                Não, prefiro continuar com o plano básico
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
