@@ -16,6 +16,30 @@ export default function Upsell() {
       s.async = true;
       document.head.appendChild(s);
     }
+
+    // Initialize Wiapy Upsell
+    const initWiapy = () => {
+      // @ts-ignore
+      if (window.initWiapyUpsell) {
+        // @ts-ignore
+        window.initWiapyUpsell({
+            linkUrl: "https://pay.wiapy.com/checkout/69d80f0e93fbb1e7e714198e",
+            linkText: "SIM, EU ACEITO ESSA OFERTA",
+            styles: {
+                backgroundColor: "#00d769",
+                hoverBackgroundColor: "#00b85a",
+                fontSize: "17px",
+                borderRadius: "10px"
+            },
+            refusalLinkUrl: "https://wiapy.com/login",
+            refusalLinkText: "Recusar está oferta",
+            refusalLinkColor: "#000000"
+        });
+      } else {
+        setTimeout(initWiapy, 500);
+      }
+    };
+    initWiapy();
   }, []);
 
   return (
@@ -291,22 +315,12 @@ export default function Upsell() {
           
           <p className="font-bold text-gray-500 uppercase tracking-widest text-sm mb-8">Pagamento único · Acesso vitalício</p>
           
-          <div className="flex flex-col gap-5 w-full max-w-md mx-auto relative">
+          <div className="flex flex-col gap-5 w-full max-w-md mx-auto relative min-h-[120px]">
             <div className="sticker -left-12 top-4 text-4xl slant-n2">🔥</div>
             
-            <a 
-              href="https://pay.kiwify.com.br" 
-              className="w-full bg-[#0a0a0a] text-white px-8 py-5 rounded-full text-center font-display font-bold text-xl lg:text-2xl brutal-shadow bouncy-scale wobble-hover"
-            >
-              sim, quero a nutri agora
-            </a>
+            {/* Wiapy Upsell Container */}
+            <div id="wiapy_upsell" className="w-full"></div>
             
-            <a 
-              href="#oferta-recusada" 
-              className="w-full bg-transparent text-[#0a0a0a] px-8 py-4 text-center font-bold text-sm lg:text-base border-b-2 border-transparent hover:border-[#0a0a0a] transition-colors"
-            >
-              não, prefiro continuar criando os lanches sozinha
-            </a>
           </div>
         </div>
       </section>
