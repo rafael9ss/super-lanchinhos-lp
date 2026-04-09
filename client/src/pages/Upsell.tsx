@@ -31,7 +31,7 @@ export default function Upsell() {
                 fontSize: "17px",
                 borderRadius: "10px"
             },
-            refusalLinkUrl: "https://wiapy.com/login",
+            refusalLinkUrl: "https://superlanchinhosdown.netlify.app",
             refusalLinkText: "Recusar está oferta",
             refusalLinkColor: "#000000"
         });
