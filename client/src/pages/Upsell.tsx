@@ -31,7 +31,7 @@ export default function Upsell() {
                 borderRadius: "10px"
             },
             refusalLinkUrl: "https://superlanchinhosdown.netlify.app",
-            refusalLinkText: "Recusar está oferta",
+            refusalLinkText: "RECUSAR ESSA OFERTA",
             refusalLinkColor: "#0066CC",
             refusalLinkfontSize: "18px"
         });
