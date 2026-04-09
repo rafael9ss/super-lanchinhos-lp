@@ -11,8 +11,8 @@ import Upsell from "./pages/Upsell";
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/upsell"} component={Upsell} />
+      <Route path={"/"} component={Upsell} />
+      <Route path={"/home"} component={Home} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
