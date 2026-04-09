@@ -23,13 +23,16 @@ export default function Upsell() {
         // @ts-ignore
         window.initWiapyUpsell({
             linkUrl: "https://pay.wiapy.com/checkout/69d80f0e93fbb1e7e714198e",
-            linkText: "Sim, me mostra como funciona",
+            linkText: "SIM, EU ACEITO ESSA OFERTA",
             styles: {
-                backgroundColor: "#0a0a0a",
-                hoverBackgroundColor: "#222222",
+                backgroundColor: "#00d769",
+                hoverBackgroundColor: "#00b85a",
                 fontSize: "17px",
-                borderRadius: "100px"
-            }
+                borderRadius: "10px"
+            },
+            refusalLinkUrl: "https://superlanchinhosdown.netlify.app",
+            refusalLinkText: "Recusar está oferta",
+            refusalLinkColor: "#000000"
         });
       } else {
         setTimeout(initWiapy, 500);
@@ -308,12 +311,7 @@ export default function Upsell() {
           <div className="flex flex-col gap-5 w-full max-w-md mx-auto relative">
             <div className="sticker -left-12 top-4 text-4xl slant-n2">🔥</div>
             
-            <a 
-              href="https://pay.kiwify.com.br" 
-              className="w-full bg-[#0a0a0a] text-white px-8 py-5 rounded-full text-center font-display font-bold text-xl lg:text-2xl brutal-shadow bouncy-scale wobble-hover"
-            >
-              Sim, me mostra como funciona
-            </a>
+            <div id="wiapy_upsell" className="w-full"></div>
           </div>
         </div>
       </section>
