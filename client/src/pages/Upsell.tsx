@@ -9,7 +9,7 @@ export default function Upsell() {
   };
 
   useEffect(() => {
-    const scriptUrl = "https://scripts.converteai.net/a930954b-410c-46a3-9750-318da063a52e/players/69d7a93834b9374d497d4153/v4/player.js";
+    const scriptUrl = "https://scripts.converteai.net/a930954b-410c-46a3-9750-318da063a52e/players/69d82b7b2c9aa6209ac3ca39/v4/player.js";
     if (!document.querySelector(`script[src="${scriptUrl}"]`)) {
       const s = document.createElement("script");
       s.src = scriptUrl;
@@ -95,7 +95,7 @@ export default function Upsell() {
 
               {/* VTurb Video */}
               <div className="mt-6 mb-2 w-full max-w-[400px] brutal-border brutal-shadow-sm bg-black overflow-hidden" style={{ borderRadius: '1rem' }}>
-                <div dangerouslySetInnerHTML={{ __html: `<vturb-smartplayer id="vid-69d7a93834b9374d497d4153" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>` }} />
+                <div dangerouslySetInnerHTML={{ __html: `<vturb-smartplayer id="vid-69d82b7b2c9aa6209ac3ca39" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>` }} />
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
