@@ -16,6 +16,26 @@ export default function Upsell() {
       s.async = true;
       document.head.appendChild(s);
     }
+    // Initialize Wiapy Upsell
+    const initWiapy = () => {
+      // @ts-ignore
+      if (window.initWiapyUpsell) {
+        // @ts-ignore
+        window.initWiapyUpsell({
+            linkUrl: "https://pay.wiapy.com/checkout/69d80f0e93fbb1e7e714198e",
+            linkText: "Sim, me mostra como funciona",
+            styles: {
+                backgroundColor: "#0a0a0a",
+                hoverBackgroundColor: "#222222",
+                fontSize: "17px",
+                borderRadius: "100px"
+            }
+        });
+      } else {
+        setTimeout(initWiapy, 500);
+      }
+    };
+    initWiapy();
   }, []);
 
   return (
