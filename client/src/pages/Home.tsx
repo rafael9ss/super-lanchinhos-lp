@@ -646,7 +646,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <CTAButton href="https://payfast.greenn.com.br/redirect/265359" variant="acid" className="w-full mt-4">
+                  <CTAButton href="https://pay.wiapy.com/2paum8xHse" variant="acid" className="w-full mt-4">
                     QUERO O PLANO COMPLETO 🔥
                   </CTAButton>
 
