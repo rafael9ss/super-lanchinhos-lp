@@ -315,6 +315,11 @@ export default function Home() {
                   ref={vtubrContainerRef}
                   className="brutal-card rounded-3xl overflow-hidden border-[#0a0a0a] bg-black min-h-[220px]"
                 />
+                <div className="mt-4 w-full">
+                  <CTAButton onClick={scrollToOffer} variant="black" className="w-full">
+                    🔥 QUERO ADQUIRIR O MEU
+                  </CTAButton>
+                </div>
               </motion.div>
               <Sticker emoji="🥑" className="top-[-10px] right-[10%] md:right-[5%]" />
               <Sticker emoji="🧁" className="bottom-[10%] left-[-5%] md:left-[0%]" delayed />
