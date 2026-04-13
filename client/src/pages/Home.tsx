@@ -253,12 +253,12 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: 0.3, ease: [0.175, 0.885, 0.32, 1.275] }}
                 className="text-[clamp(2.2rem,7vw,4.5rem)] font-bold leading-[0.95] mb-5 tracking-[-0.05em] text-[#0a0a0a]"
               >
-                Cuide da alimentação de quem você
+                Mais de{" "}
+                <span className="gradient-text">200 ideias de lanchinhos</span>
                 <br />
-                <span className="gradient-text">mais ama</span>
-                {" "}com Lanchinhos
+                simples e saudáveis —{" "}
                 <br />
-                Simples, Gostosos e Saudáveis!
+                porque cuidar de quem você ama não precisa ser complicado. 🍎
               </motion.h1>
 
               <motion.p
@@ -730,7 +730,7 @@ export default function Home() {
           <RevealOnScroll>
             <h3 className="text-lg md:text-xl font-bold mb-4 text-white lowercase font-display">ficou com alguma dúvida? 💬</h3>
             <a
-              href="https://wa.me/message/SETD4GEBJRX6A1"
+              href="https://wa.me/message/LOKQDTQ35F6CM1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-bold py-3 px-7
@@ -743,6 +743,15 @@ export default function Home() {
               </svg>
               fale conosco no whatsapp
             </a>
+            <p className="mt-5 text-white/50 text-xs font-display lowercase">
+              ou envie um e-mail para{" "}
+              <a
+                href="mailto:superlanchinhosoficial@gmail.com"
+                className="text-[#ccff00] underline underline-offset-2 hover:text-white transition-colors"
+              >
+                superlanchinhosoficial@gmail.com
+              </a>
+            </p>
           </RevealOnScroll>
         </div>
       </section>
