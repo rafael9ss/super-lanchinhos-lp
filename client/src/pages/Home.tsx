@@ -546,8 +546,6 @@ export default function Home() {
                   src={`/images/depoimento${num}.png`}
                   alt={`Depoimento real de mãe ${num}`}
                   className="w-full h-auto rounded-xl"
-                  loading="lazy"
-                  decoding="async"
                 />
               </motion.div>
             ))}
