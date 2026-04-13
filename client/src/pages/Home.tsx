@@ -10,7 +10,7 @@ import { CountdownTimer } from "@/components/CountdownTimer";
 import { CTAButton } from "@/components/CTAButton";
 import { UpsellPopup } from "@/components/UpsellPopup";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 /* ──── Animation Helpers ──── */
 
@@ -95,6 +95,31 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 /* ══════════════════════════════════════ */
 export default function Home() {
   const [upsellOpen, setUpsellOpen] = useState(false);
+  const vtubrContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = vtubrContainerRef.current;
+    if (!container) return;
+
+    // Create and insert the custom element
+    const player = document.createElement("vturb-smartplayer");
+    player.setAttribute("id", "vid-69d7c54734b9374d497d9c51");
+    player.style.cssText = "display:block;margin:0 auto;width:100%;";
+    container.appendChild(player);
+
+    // Re-inject the player script so it initialises the newly added element
+    const script = document.createElement("script");
+    script.src =
+      "https://scripts.converteai.net/a930954b-410c-46a3-9750-318da063a52e/players/69d7c54734b9374d497d9c51/v4/player.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup on unmount
+      if (container.contains(player)) container.removeChild(player);
+      if (document.head.contains(script)) document.head.removeChild(script);
+    };
+  }, []);
 
   const scrollToOffer = () => {
     const el = document.getElementById("oferta");
@@ -278,17 +303,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Mockup Image */}
-            <div className="order-1 md:order-2 flex justify-center relative w-full h-[450px]">
+            {/* Right: VTurb Video Player */}
+            <div className="order-1 md:order-2 flex justify-center items-center relative w-full">
               <motion.div
                 initial={{ opacity: 0, y: 60, rotate: -3 }}
-                animate={{ opacity: 1, y: 0, rotate: 2 }}
+                animate={{ opacity: 1, y: 0, rotate: 1 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
-                className="relative w-full h-full max-w-[450px]"
+                className="relative w-full max-w-[420px]"
               >
-                <div className="brutal-card w-full h-full rounded-3xl overflow-hidden bg-white/20 border-[#0a0a0a]">
-                  <img src="/images/mockup-hero.jpg" alt="Em menos de 15 minutos — lanches saudáveis para crianças" className="w-full h-full object-cover" />
-                </div>
+                <div
+                  ref={vtubrContainerRef}
+                  className="brutal-card rounded-3xl overflow-hidden border-[#0a0a0a] bg-black min-h-[220px]"
+                />
               </motion.div>
               <Sticker emoji="🥑" className="top-[-10px] right-[10%] md:right-[5%]" />
               <Sticker emoji="🧁" className="bottom-[10%] left-[-5%] md:left-[0%]" delayed />
