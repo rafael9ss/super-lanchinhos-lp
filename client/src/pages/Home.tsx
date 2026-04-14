@@ -98,25 +98,14 @@ export default function Home() {
   const vtubrContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const container = vtubrContainerRef.current;
-    if (!container) return;
-
-    // Create and insert the custom element
-    const player = document.createElement("vturb-smartplayer");
-    player.setAttribute("id", "vid-69d7c54734b9374d497d9c51");
-    player.style.cssText = "display:block;margin:0 auto;width:100%;";
-    container.appendChild(player);
-
-    // Re-inject the player script so it initialises the newly added element
+    // Re-injecting VTurb script for the hero player
     const script = document.createElement("script");
-    script.src =
-      "https://scripts.converteai.net/a930954b-410c-46a3-9750-318da063a52e/players/69d7c54734b9374d497d9c51/v4/player.js";
+    script.src = "https://scripts.converteai.net/a930954b-410c-46a3-9750-318da063a52e/players/69d7c54734b9374d497d9c51/v4/player.js";
     script.async = true;
     document.head.appendChild(script);
 
     return () => {
       // Cleanup on unmount
-      if (container.contains(player)) container.removeChild(player);
       if (document.head.contains(script)) document.head.removeChild(script);
     };
   }, []);
@@ -311,10 +300,12 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
                 className="relative w-full max-w-[420px]"
               >
-                <div
-                  ref={vtubrContainerRef}
-                  className="brutal-card rounded-3xl overflow-hidden border-[#0a0a0a] bg-black min-h-[220px]"
-                />
+                  <div
+                    ref={vtubrContainerRef}
+                    className="brutal-card rounded-3xl overflow-hidden border-[#0a0a0a] bg-black min-h-[220px]"
+                  >
+                    <vturb-smartplayer id="vid-69d7c54734b9374d497d9c51" style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }} />
+                  </div>
                 <div className="mt-4 w-full">
                   <CTAButton onClick={scrollToOffer} variant="black" className="w-full">
                     🔥 QUERO ADQUIRIR O MEU
@@ -337,7 +328,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <RevealOnScroll>
             <div className="brutal-card bg-[#0a0a0a] text-white p-6 md:p-12 rounded-3xl" style={{ transform: "rotate(-0.5deg)" }}>
-              <img src="/images/700-800.png" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" />
+              <img src="/images/700-800.png" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" loading="lazy" />
               <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mt-4">
                 Oferecer apenas biscoitos, salgadinhos ou suco de caixinha tantas vezes pode afetar o desenvolvimento e a saúde dele.
                 Não é que você não se importa — <strong className="text-[#ccff00]">você só não tem tempo sobrando, nem cabeça para inventar lanche todos os dias.</strong>
@@ -543,9 +534,10 @@ export default function Home() {
                 style={{ transform: `rotate(${[-1.5, 0.5, -0.5, 1][i]}deg)` }}
               >
                 <img
-                  src={`/images/depoimento${num}.png`}
+                  src={`/images/depoimento${num}.webp`}
                   alt={`Depoimento real de mãe ${num}`}
                   className="w-full h-auto rounded-xl"
+                  loading="lazy"
                 />
               </motion.div>
             ))}
@@ -659,21 +651,21 @@ export default function Home() {
                   </ul>
 
                   {/* Price with strikethrough */}
-                  <div className="text-center mt-auto mb-2 w-full">
-                    <p className="text-gray-500 text-xs line-through mb-1">De R$ 97,90 por:</p>
-                    <div className="flex justify-center items-baseline">
-                      <span className="text-xl font-bold text-white mr-1 font-display">R$</span>
-                      <span className="text-6xl font-bold text-white tracking-tighter leading-none font-display">37</span>
-                      <span className="text-xl font-bold text-white font-display">,90</span>
+                    <div className="flex flex-col items-center">
+                      <div className="flex justify-center items-baseline">
+                        <span className="text-2xl font-bold text-white mr-2 font-display">12x de</span>
+                        <span className="text-xl font-bold text-white mr-1 font-display uppercase">R$</span>
+                        <span className="text-7xl font-bold text-white tracking-tighter leading-none font-display">3</span>
+                        <span className="text-2xl font-bold text-white font-display">,92</span>
+                      </div>
+                      <p className="text-white font-bold text-xs mt-2 uppercase tracking-widest opacity-80">Ou R$ 37,90 à vista</p>
                     </div>
-                    <p className="text-gray-400 text-xs mt-1">Ou 12x de R$ 3,92</p>
 
-                    <div className="mt-3 bg-[#ff0099]/20 border border-[#ff0099]/40 rounded-xl p-2.5">
-                      <p className="text-[#ff0099] text-[11px] font-bold uppercase tracking-wide">
-                        ⏰ OFERTA POR TEMPO LIMITADO: enquanto essa página estiver no ar, você economiza R$ 60 e ainda leva 7 bônus de presente.
-                      </p>
-                    </div>
-                  </div>
+                      <div className="mt-3 bg-[#ff0099]/20 border border-[#ff0099]/40 rounded-xl p-2.5">
+                        <p className="text-[#ff0099] text-[11px] font-bold uppercase tracking-wide">
+                          ⏰ OFERTA POR TEMPO LIMITADO: enquanto essa página estiver no ar, você economiza R$ 60 e ainda leva 7 bônus de presente.
+                        </p>
+                      </div>
 
                   <CTAButton href="https://pay.wiapy.com/2paum8xHse" variant="acid" className="w-full mt-4">
                     QUERO O PLANO COMPLETO 🔥
