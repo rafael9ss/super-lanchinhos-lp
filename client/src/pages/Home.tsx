@@ -534,7 +534,7 @@ export default function Home() {
                 style={{ transform: `rotate(${[-1.5, 0.5, -0.5, 1][i]}deg)` }}
               >
                 <img
-                  src={`/images/depoimento${num}.webp`}
+                  src={`/images/depoimento-${num}.png`}
                   alt={`Depoimento real de mãe ${num}`}
                   className="w-full h-auto rounded-xl"
                   loading="lazy"
