@@ -328,7 +328,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <RevealOnScroll>
             <div className="brutal-card bg-[#0a0a0a] text-white p-6 md:p-12 rounded-3xl" style={{ transform: "rotate(-0.5deg)" }}>
-              <img src="/images/700-800.png" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" loading="lazy" />
+              <img src="/images/700-800.png" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" />
               <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mt-4">
                 Oferecer apenas biscoitos, salgadinhos ou suco de caixinha tantas vezes pode afetar o desenvolvimento e a saúde dele.
                 Não é que você não se importa — <strong className="text-[#ccff00]">você só não tem tempo sobrando, nem cabeça para inventar lanche todos os dias.</strong>
@@ -537,7 +537,6 @@ export default function Home() {
                   src={`/images/depoimento-${num}.png`}
                   alt={`Depoimento real de mãe ${num}`}
                   className="w-full h-auto rounded-xl"
-                  loading="lazy"
                 />
               </motion.div>
             ))}
