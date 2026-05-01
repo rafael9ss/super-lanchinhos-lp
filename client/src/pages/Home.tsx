@@ -556,20 +556,29 @@ export default function Home() {
                 className={`bg-[#1a1a1a] border-4 rounded-2xl p-5 md:p-6 relative ${i === 0 ? "md:col-span-2 border-[#ff0099]" : "border-white/20"}`}
                 style={{ transform: `rotate(${i % 2 === 0 ? -0.5 : 0.5}deg)` }}
               >
-                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
                   <div className="shrink-0 flex flex-col items-center">
-                    <div className="bg-[#ff0099] text-white font-display font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full border-2 border-white mb-2 text-center whitespace-nowrap">
+                    <div className="bg-[#ff0099] text-white font-display font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full border-2 border-white mb-3 text-center whitespace-nowrap">
                       BÔNUS HOJE! #{bonus.num}
                     </div>
                     {bonus.image ? (
-                        <img loading="lazy" decoding="async" src={bonus.image} alt={bonus.title} className="w-[180px] md:w-[240px] shrink-0 object-cover rounded-xl mt-2 rotate-2 shadow-[4px_4px_0px_rgba(255,255,255,0.2)]" />
+                        <img loading="lazy" decoding="async" src={bonus.image} alt={bonus.title} className={`shrink-0 object-cover rounded-xl mt-2 rotate-2 shadow-[6px_6px_0px_rgba(204,255,0,0.25)] ${i === 0 ? 'w-[280px] md:w-[320px]' : 'w-[220px] md:w-[280px]'}`} />
                     ) : (
-                        <div className="text-4xl text-center">{bonus.emoji}</div>
+                        <div className="text-5xl text-center">{bonus.emoji}</div>
                     )}
                   </div>
                   <div className="text-center sm:text-left">
-                    <h4 className="font-bold text-white text-base md:text-lg font-display mb-2 leading-tight">{bonus.title}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">{bonus.desc}</p>
+                    <h4
+                      className="font-display font-bold text-xl md:text-2xl leading-tight mb-3"
+                      style={{
+                        color: '#ccff00',
+                        textShadow: '2px 2px 0px #0a0a0a, -1px -1px 0px rgba(0,0,0,0.5)',
+                        letterSpacing: '-0.02em'
+                      }}
+                    >
+                      {bonus.title}
+                    </h4>
+                    <p className="text-gray-300 text-sm md:text-base leading-relaxed">{bonus.desc}</p>
                   </div>
                 </div>
               </motion.div>
