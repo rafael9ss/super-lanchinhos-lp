@@ -323,6 +323,75 @@ export default function Home() {
       {/* ====== SLANTED MARQUEE ====== */}
       <MarqueeSection />
 
+      {/* ====== CAROUSEL SECTION ====== */}
+      <section className="py-16 md:py-24 bg-[#ff0099] relative overflow-hidden border-y-4 border-[#0a0a0a]">
+        <div className="absolute top-[-50px] right-[-50px] w-64 h-64 rounded-full bg-[#ccff00]/20 blur-[60px]" />
+        <div className="absolute bottom-[-50px] left-[-50px] w-48 h-48 rounded-full bg-[#7000ff]/20 blur-[50px]" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <RevealOnScroll>
+            <div className="text-center mb-12 md:mb-16">
+              <span className="inline-block bg-[#0a0a0a] text-[#ccff00] font-display font-bold text-[11px] uppercase tracking-[0.15em] px-5 py-2 mb-4 border-4 border-[#0a0a0a] rounded-full shadow-[4px_4px_0px_#ffffff]">
+                espiadinha no conteúdo 👀
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-white font-display">
+                Algumas das nossas mais de<br />
+                <span className="text-[#0a0a0a] bg-[#ccff00] px-2 italic inline-block mt-2 transform -rotate-1">200 receitinhas.</span>
+              </h2>
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.2}>
+            <div className="max-w-6xl mx-auto">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-4 md:-ml-6 py-4">
+                  {[
+                    { img: "/images/bolinho-banana.png", title: "Bolinho de Banana com Aveia" },
+                    { img: "/images/pao-batata-doce.png", title: "Pãozinho de Batata Doce com Frango" },
+                    { img: "/images/bolinho-cenoura.png", title: "Bolinho de Cenoura sem Lactose" },
+                    { img: "/images/bolinho-cacau.png", title: "Biscoitinho de Cacau" },
+                    { img: "/images/esfiha-saudavel.png", title: "Esfiha Saudável" },
+                    { img: "/images/paozinho-abobora.png", title: "Pãozinho de Abóbora" },
+                  ].map((item, index) => (
+                    <CarouselItem key={index} className="pl-4 md:pl-6 basis-[80%] sm:basis-[60%] md:basis-1/3 lg:basis-1/4">
+                      <div 
+                        className="brutal-card bg-white p-3 rounded-3xl h-full flex flex-col group border-4 border-[#0a0a0a] transition-transform duration-300 hover:-translate-y-2 shadow-[6px_6px_0px_#0a0a0a] hover:shadow-[8px_8px_0px_#0a0a0a]" 
+                        style={{ transform: `rotate(${index % 2 === 0 ? -1.5 : 1.5}deg)` }}
+                      >
+                        <div className="rounded-2xl overflow-hidden bg-[#f5f5f5] aspect-[9/16] relative border-2 border-[#0a0a0a]">
+                          <img 
+                            src={item.img} 
+                            alt={item.title} 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+                          <div className="absolute bottom-0 left-0 right-0 p-4">
+                            <h3 className="text-white font-display font-bold text-lg md:text-xl leading-tight">{item.title}</h3>
+                          </div>
+                          <div className="absolute top-3 left-3 bg-[#ccff00] text-[#0a0a0a] font-bold font-display text-[10px] md:text-xs uppercase px-3 py-1.5 rounded-full border-2 border-[#0a0a0a] shadow-[2px_2px_0px_#0a0a0a]">
+                            Receita #{index + 1}
+                          </div>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="flex justify-center gap-4 mt-8 md:mt-12 relative z-20">
+                  <CarouselPrevious className="static translate-y-0 w-12 h-12 md:w-14 md:h-14 border-4 border-[#0a0a0a] bg-white text-[#0a0a0a] shadow-[4px_4px_0px_#0a0a0a] hover:bg-[#ccff00] hover:translate-x-0 hover:translate-y-0 opacity-100 disabled:opacity-50" />
+                  <CarouselNext className="static translate-y-0 w-12 h-12 md:w-14 md:h-14 border-4 border-[#0a0a0a] bg-white text-[#0a0a0a] shadow-[4px_4px_0px_#0a0a0a] hover:bg-[#ccff00] hover:translate-x-0 hover:translate-y-0 opacity-100 disabled:opacity-50" />
+                </div>
+              </Carousel>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* ====== STAT CALLOUT ====== */}
       <section className="py-14 md:py-20 bg-white">
         <div className="container mx-auto max-w-4xl px-4 text-center">
