@@ -365,8 +365,7 @@ export default function Home() {
                         style={{ transform: `rotate(${index % 2 === 0 ? -1.5 : 1.5}deg)` }}
                       >
                         <div className="rounded-2xl overflow-hidden bg-[#f5f5f5] aspect-[9/16] relative border-2 border-[#0a0a0a]">
-                          <img 
-                            src={item.img} 
+                          <img loading="lazy" decoding="async" src={item.img} 
                             alt={item.title} 
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                           />
@@ -397,7 +396,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <RevealOnScroll>
             <div className="brutal-card bg-[#0a0a0a] text-white p-6 md:p-12 rounded-3xl" style={{ transform: "rotate(-0.5deg)" }}>
-              <img src="/images/700-800.png" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" />
+              <img loading="lazy" decoding="async" src="/images/700-800.png" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" />
               <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mt-4">
                 Oferecer apenas biscoitos, salgadinhos ou suco de caixinha tantas vezes pode afetar o desenvolvimento e a saúde dele.
                 Não é que você não se importa — <strong className="text-[#ccff00]">você só não tem tempo sobrando, nem cabeça para inventar lanche todos os dias.</strong>
@@ -509,7 +508,7 @@ export default function Home() {
                   <div className="bg-[#ccff00] text-[#0a0a0a] font-display font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border-2 border-[#0a0a0a] mb-3">
                     ITEM 01
                   </div>
-                  <img src="/images/plano-basico.jpg" alt="Super Lanchinhos — Guia completo" className="w-[160px] md:w-[200px] h-auto object-contain rounded-2xl" />
+                  <img loading="lazy" decoding="async" src="/images/plano-basico.jpg" alt="Super Lanchinhos — Guia completo" className="w-[160px] md:w-[200px] h-auto object-contain rounded-2xl" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl md:text-3xl font-bold text-white font-display mb-2">Super Lanchinhos</h3>
@@ -563,7 +562,7 @@ export default function Home() {
                       BÔNUS HOJE! #{bonus.num}
                     </div>
                     {bonus.image ? (
-                        <img src={bonus.image} alt={bonus.title} className="w-[180px] md:w-[240px] shrink-0 object-cover rounded-xl mt-2 rotate-2 shadow-[4px_4px_0px_rgba(255,255,255,0.2)]" />
+                        <img loading="lazy" decoding="async" src={bonus.image} alt={bonus.title} className="w-[180px] md:w-[240px] shrink-0 object-cover rounded-xl mt-2 rotate-2 shadow-[4px_4px_0px_rgba(255,255,255,0.2)]" />
                     ) : (
                         <div className="text-4xl text-center">{bonus.emoji}</div>
                     )}
@@ -602,8 +601,7 @@ export default function Home() {
                 className="brutal-card bg-white p-2 rounded-2xl hover:-translate-y-1"
                 style={{ transform: `rotate(${[-1.5, 0.5, -0.5, 1][i]}deg)` }}
               >
-                <img
-                  src={`/images/depoimento-${num}.png`}
+                <img loading="lazy" decoding="async" src={`/images/depoimento-${num}.png`}
                   alt={`Depoimento real de mãe ${num}`}
                   className="w-full h-auto rounded-xl"
                 />
@@ -641,7 +639,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-[#0a0a0a] tracking-[-0.03em] font-display">BÁSICO</h3>
                 </div>
                 <div className="p-6 md:p-8 flex flex-col items-center flex-1">
-                  <img src="/images/plano-basico.jpg" alt="Plano Básico — Super Lanchinhos" className="w-[80%] h-auto mb-6 object-contain" />
+                  <img loading="lazy" decoding="async" src="/images/plano-basico.jpg" alt="Plano Básico — Super Lanchinhos" className="w-[80%] h-auto mb-6 object-contain" />
 
                   <ul className="text-left w-full space-y-2 mb-6">
                     {[
@@ -704,7 +702,7 @@ export default function Home() {
                 </div>
 
                 <div className="p-6 md:p-8 flex flex-col items-center flex-1">
-                  <img src="/images/bundle-completo.jpg" alt="Plano Completo com todos os bônus" className="w-[90%] h-auto mb-6 object-contain hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" decoding="async" src="/images/bundle-completo.jpg" alt="Plano Completo com todos os bônus" className="w-[90%] h-auto mb-6 object-contain hover:scale-105 transition-transform duration-500" />
 
                   <p className="text-[#ccff00] font-display font-bold text-xs uppercase tracking-widest mb-3 self-start">Resumo de tudo que você vai receber:</p>
                   <ul className="text-left w-full space-y-2 mb-5 text-white/90">
@@ -865,3 +863,4 @@ export default function Home() {
     </div>
   );
 }
+
