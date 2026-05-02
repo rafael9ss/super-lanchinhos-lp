@@ -112,7 +112,11 @@ export default function Home() {
 
   const scrollToOffer = () => {
     const el = document.getElementById("oferta");
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
+    if (!el) return;
+    // Usa scroll instantâneo para evitar que animações de seções intermediárias
+    // (RevealOnScroll / useInView) bloqueiem o scroll antes de atingir a dobra de oferta.
+    const top = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top, behavior: "instant" });
   };
 
   /* ── Ideal audience profiles ── */
@@ -141,49 +145,49 @@ export default function Home() {
       emoji: "🍕",
       title: "Receitas de Pãozinhos e Pizzas sem Açúcar e Glúten",
       desc: "Faça versões saudáveis das comidas que seu filho ama. Sem açúcar, sem glúten e prontas em minutos. Assim, você mata a vontade dele de 'besteira' sem sair da alimentação saudável.",
-      image: "/images/bonus-01.jpg"
+      image: "/images/bonus-01.webp"
     },
     {
       num: "02",
       emoji: "🗂️",
       title: "Guia Prático de Organização e Congelamento das Receitas",
       desc: "Aprenda a preparar tudo de uma vez e deixar a semana pronta em menos de 30 minutos. Ganhe tempo, evite desperdício e mantenha as receitas sempre fresquinhas e fáceis de servir.",
-      image: "/images/bonus-02.jpg"
+      image: "/images/bonus-02.webp"
     },
     {
       num: "03",
       emoji: "🌿",
       title: "Receitas Especiais para Crianças com Alergias",
       desc: "Receitas seguras, gostosas e adaptadas para alergias comuns (leite, ovo, soja, amendoim). Mesmo sem alergias, é útil para variação de receitas e redução de alimentos inflamatórios.",
-      image: "/images/bonus-03.jpg"
+      image: "/images/bonus-03.webp"
     },
     {
       num: "04",
       emoji: "🍬",
       title: "Doces Deliciosos e Saudáveis",
       desc: "Substitua os industrializados por doces saudáveis que seu filho vai amar, feitos com ingredientes naturais, sem culpa e com muito sabor.",
-      image: "/images/bonus-04.jpg"
+      image: "/images/bonus-04.webp"
     },
     {
       num: "05",
       emoji: "💚",
       title: "Manual do Anti-Seletividade Alimentar",
       desc: "Não é sobre 'forçar a criança a comer'. São técnicas simples de adaptação alimentar gentil, já utilizadas e aprovadas por mães de crianças seletivas de verdade.",
-      image: "/images/bonus-05.jpg"
+      image: "/images/bonus-05.webp"
     },
     {
       num: "06",
       emoji: "🍹",
       title: "Suquinhos Saudáveis e Fáceis de Fazer!",
       desc: "Receitas práticas de sucos naturais, nutritivos e gostosos para alegrar o dia do seu filho — perfeitos pra lancheira, café da manhã ou tarde.",
-      image: "/images/bonus-suquinhos.jpg"
+      image: "/images/bonus-suquinhos.webp"
     },
     {
       num: "07",
       emoji: "🎒",
       title: "Guia Prático de Montagem de Lancheiras",
       desc: "Aprenda a montar lancheiras variadas, equilibradas e cheias de sabor, sem perder tempo pensando no que colocar todo dia.",
-      image: "/images/bonus-07.jpg"
+      image: "/images/bonus-07.webp"
     },
   ];
 
@@ -222,7 +226,7 @@ export default function Home() {
         <div className="nav-pill px-4 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#ccff00] border-2 border-[#0a0a0a] rounded-full flex items-center justify-center font-display font-bold text-sm shadow-[2px_2px_0px_#000000] overflow-hidden">
-              <img src="/images/logo-menu.png" alt="Super Lanchinhos logo" className="w-[90%] h-[90%] object-contain" />
+              <img src="/images/logo-menu.webp" alt="Super Lanchinhos logo" className="w-[90%] h-[90%] object-contain" />
             </div>
             <span className="font-display font-bold text-sm lowercase hidden sm:block">super lanchinhos</span>
           </div>
@@ -352,12 +356,12 @@ export default function Home() {
               >
                 <CarouselContent className="-ml-4 md:-ml-6 py-4">
                   {[
-                    { img: "/images/bolinho-banana.png", title: "Bolinho de Banana com Aveia" },
-                    { img: "/images/pao-batata-doce.png", title: "Pãozinho de Batata Doce com Frango" },
-                    { img: "/images/bolinho-cenoura.png", title: "Bolinho de Cenoura sem Lactose" },
-                    { img: "/images/bolinho-cacau.png", title: "Biscoitinho de Cacau" },
-                    { img: "/images/esfiha-saudavel.png", title: "Esfiha Saudável" },
-                    { img: "/images/paozinho-abobora.png", title: "Pãozinho de Abóbora" },
+                    { img: "/images/bolinho-banana.webp", title: "Bolinho de Banana com Aveia" },
+                    { img: "/images/pao-batata-doce.webp", title: "Pãozinho de Batata Doce com Frango" },
+                    { img: "/images/bolinho-cenoura.webp", title: "Bolinho de Cenoura sem Lactose" },
+                    { img: "/images/bolinho-cacau.webp", title: "Biscoitinho de Cacau" },
+                    { img: "/images/esfiha-saudavel.webp", title: "Esfiha Saudável" },
+                    { img: "/images/paozinho-abobora.webp", title: "Pãozinho de Abóbora" },
                   ].map((item, index) => (
                     <CarouselItem key={index} className="pl-4 md:pl-6 basis-[80%] sm:basis-[60%] md:basis-1/3 lg:basis-1/4">
                       <div 
@@ -396,7 +400,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <RevealOnScroll>
             <div className="brutal-card bg-[#0a0a0a] text-white p-6 md:p-12 rounded-3xl" style={{ transform: "rotate(-0.5deg)" }}>
-              <img loading="lazy" decoding="async" src="/images/700-800.png" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" />
+              <img loading="lazy" decoding="async" src="/images/700-800.webp" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" />
               <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mt-4">
                 Oferecer apenas biscoitos, salgadinhos ou suco de caixinha tantas vezes pode afetar o desenvolvimento e a saúde dele.
                 Não é que você não se importa — <strong className="text-[#ccff00]">você só não tem tempo sobrando, nem cabeça para inventar lanche todos os dias.</strong>
@@ -508,7 +512,7 @@ export default function Home() {
                   <div className="bg-[#ccff00] text-[#0a0a0a] font-display font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border-2 border-[#0a0a0a] mb-3">
                     ITEM 01
                   </div>
-                  <img loading="lazy" decoding="async" src="/images/plano-basico.jpg" alt="Super Lanchinhos — Guia completo" className="w-[160px] md:w-[200px] h-auto object-contain rounded-2xl" />
+                  <img loading="lazy" decoding="async" src="/images/plano-basico.webp" alt="Super Lanchinhos — Guia completo" className="w-[160px] md:w-[200px] h-auto object-contain rounded-2xl" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl md:text-3xl font-bold text-white font-display mb-2">Super Lanchinhos</h3>
@@ -610,7 +614,7 @@ export default function Home() {
                 className="brutal-card bg-white p-2 rounded-2xl hover:-translate-y-1"
                 style={{ transform: `rotate(${[-1.5, 0.5, -0.5, 1][i]}deg)` }}
               >
-                <img loading="lazy" decoding="async" src={`/images/depoimento-${num}.png`}
+                <img loading="lazy" decoding="async" src={`/images/depoimento-${num}.webp`}
                   alt={`Depoimento real de mãe ${num}`}
                   className="w-full h-auto rounded-xl"
                 />
@@ -648,7 +652,7 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-[#0a0a0a] tracking-[-0.03em] font-display">BÁSICO</h3>
                 </div>
                 <div className="p-6 md:p-8 flex flex-col items-center flex-1">
-                  <img loading="lazy" decoding="async" src="/images/plano-basico.jpg" alt="Plano Básico — Super Lanchinhos" className="w-[80%] h-auto mb-6 object-contain" />
+                  <img loading="lazy" decoding="async" src="/images/plano-basico.webp" alt="Plano Básico — Super Lanchinhos" className="w-[80%] h-auto mb-6 object-contain" />
 
                   <ul className="text-left w-full space-y-2 mb-6">
                     {[
@@ -711,7 +715,7 @@ export default function Home() {
                 </div>
 
                 <div className="p-6 md:p-8 flex flex-col items-center flex-1">
-                  <img loading="lazy" decoding="async" src="/images/bundle-completo.jpg" alt="Plano Completo com todos os bônus" className="w-[90%] h-auto mb-6 object-contain hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" decoding="async" src="/images/bundle-completo.webp" alt="Plano Completo com todos os bônus" className="w-[90%] h-auto mb-6 object-contain hover:scale-105 transition-transform duration-500" />
 
                   <p className="text-[#ccff00] font-display font-bold text-xs uppercase tracking-widest mb-3 self-start">Resumo de tudo que você vai receber:</p>
                   <ul className="text-left w-full space-y-2 mb-5 text-white/90">
