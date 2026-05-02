@@ -113,10 +113,19 @@ export default function Home() {
   const scrollToOffer = () => {
     const el = document.getElementById("oferta");
     if (!el) return;
-    // Usa scroll instantâneo para evitar que animações de seções intermediárias
-    // (RevealOnScroll / useInView) bloqueiem o scroll antes de atingir a dobra de oferta.
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({ top, behavior: "instant" });
+
+    // Calcula e executa o scroll imediatamente
+    const doScroll = () => {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: "instant" });
+    };
+
+    doScroll();
+
+    // Re-executa o scroll após 250ms e 650ms para compensar imagens que
+    // carregam depois do scroll inicial e deslocam o layout (layout shift).
+    setTimeout(doScroll, 250);
+    setTimeout(doScroll, 650);
   };
 
   /* ── Ideal audience profiles ── */
@@ -566,7 +575,9 @@ export default function Home() {
                       BÔNUS HOJE! #{bonus.num}
                     </div>
                     {bonus.image ? (
-                        <img loading="lazy" decoding="async" src={bonus.image} alt={bonus.title} className={`shrink-0 object-cover rounded-xl mt-2 rotate-2 shadow-[6px_6px_0px_rgba(204,255,0,0.25)] ${i === 0 ? 'w-[280px] md:w-[320px]' : 'w-[220px] md:w-[280px]'}`} />
+                        <div className={`shrink-0 rounded-xl overflow-hidden mt-2 rotate-2 shadow-[6px_6px_0px_rgba(204,255,0,0.25)] ${i === 0 ? 'w-[280px] md:w-[320px]' : 'w-[220px] md:w-[280px]'}`} style={{ aspectRatio: '4/3' }}>
+                          <img loading="lazy" decoding="async" src={bonus.image} alt={bonus.title} className="w-full h-full object-cover" />
+                        </div>
                     ) : (
                         <div className="text-5xl text-center">{bonus.emoji}</div>
                     )}
@@ -614,10 +625,13 @@ export default function Home() {
                 className="brutal-card bg-white p-2 rounded-2xl hover:-translate-y-1"
                 style={{ transform: `rotate(${[-1.5, 0.5, -0.5, 1][i]}deg)` }}
               >
-                <img loading="lazy" decoding="async" src={`/images/depoimento-${num}.webp`}
-                  alt={`Depoimento real de mãe ${num}`}
-                  className="w-full h-auto rounded-xl"
-                />
+                {/* aspect-ratio reserva o espaço antes da imagem carregar, evitando layout shift */}
+                <div style={{ aspectRatio: '9/16' }} className="w-full rounded-xl overflow-hidden bg-gray-100">
+                  <img loading="lazy" decoding="async" src={`/images/depoimento-${num}.webp`}
+                    alt={`Depoimento real de mãe ${num}`}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
               </motion.div>
             ))}
           </StaggerChildren>
