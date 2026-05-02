@@ -100,7 +100,7 @@ export default function Home() {
   useEffect(() => {
     // Re-injecting VTurb script for the hero player
     const script = document.createElement("script");
-    script.src = "https://scripts.converteai.net/a930954b-410c-46a3-9750-318da063a52e/players/69ef9d5e3fdd3d20d103a3b8/v4/player.js";
+    script.src = "https://scripts.converteai.net/a930954b-410c-46a3-9750-318da063a52e/players/69f67dbb2cdb6c72eb24b1cc/v4/player.js";
     script.async = true;
     document.head.appendChild(script);
 
@@ -308,7 +308,7 @@ export default function Home() {
                     ref={vtubrContainerRef}
                     className="brutal-card rounded-3xl overflow-hidden border-[#0a0a0a] bg-black min-h-[220px]"
                   >
-                    <vturb-smartplayer id="vid-69ef9d5e3fdd3d20d103a3b8" style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }} />
+                    <vturb-smartplayer id="vid-69f67dbb2cdb6c72eb24b1cc" style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }} />
                   </div>
                 <div className="mt-4 w-full">
                   <CTAButton onClick={scrollToOffer} variant="black" className="w-full">
