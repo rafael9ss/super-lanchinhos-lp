@@ -207,7 +207,7 @@ export default function Home() {
     { q: "Preciso ter habilidade na cozinha?", a: "Zero! Cada receita tem o passo a passo com fotos e dicas. Se você sabe ligar o forno e usar uma colher, já é o suficiente. São receitas feitas para mães ocupadas, não para chefs." },
     { q: "Quanto tempo leva para preparar?", a: "A maioria das receitas leva de 10 a 15 minutos. Algumas podem ser preparadas no dia anterior. Também temos receitas de 5 minutos para emergências!" },
     { q: "Como recebo o acesso?", a: "Imediatamente após a confirmação do pagamento, você recebe o acesso por e-mail. É 100% digital — acesse pelo celular, tablet ou computador, onde e quando quiser." },
-    { q: "E se eu não gostar?", a: "Você tem 7 dias inteiros para testar. Se por qualquer motivo não ficar satisfeita, basta enviar um único e-mail e devolvemos 100% do seu investimento, e você ainda pode ficar com o produto!" },
+    { q: "E se eu não gostar?", a: "Você tem 30 dias inteiros para testar. Se por qualquer motivo não ficar satisfeita, basta enviar um único e-mail e devolvemos 100% do seu investimento, e você ainda pode ficar com o produto!" },
   ];
 
   /* ── Complete checklist for bundle ── */
@@ -868,7 +868,7 @@ export default function Home() {
 
                   <div className="mt-4 text-center">
                     <p className="text-[10px] text-gray-400 flex items-center justify-center gap-1">
-                      <Lock className="w-2.5 h-2.5" /> Compra 100% segura • Acesso Imediato • 7 dias de garantia
+                      <Lock className="w-2.5 h-2.5" /> Compra 100% segura • Acesso Imediato • 30 dias de garantia
                     </p>
                   </div>
 
@@ -932,7 +932,7 @@ export default function Home() {
                   </CTAButton>
 
                   <p className="mt-3 text-[10px] text-gray-500 flex items-center justify-center gap-1 text-center">
-                    <Lock className="w-2.5 h-2.5" /> Compra 100% segura • Receba instantaneamente por email • 7 dias de garantia
+                    <Lock className="w-2.5 h-2.5" /> Compra 100% segura • Receba instantaneamente por email • 30 dias de garantia
                   </p>
 
                   <div className="mt-3 bg-[#ccff00]/10 border border-[#ccff00]/30 rounded-xl p-2.5 w-full">
@@ -972,11 +972,11 @@ export default function Home() {
               </h2>
               <p className="text-gray-500 leading-relaxed max-w-lg text-sm md:text-base">
                 Se você adquirir o Super Lanchinhos e por qualquer motivo não ficar satisfeita, você tem{" "}
-                <strong className="text-[#0a0a0a]">7 dias inteiros</strong> para pedir seu reembolso.
+                <strong className="bg-[#ccff00] text-[#0a0a0a] px-2 py-0.5 rounded-md border-2 border-[#0a0a0a] shadow-[2px_2px_0px_#0a0a0a] uppercase tracking-wide">30 dias inteiros</strong> para pedir seu reembolso.
               </p>
-              <p className="text-gray-500 leading-relaxed max-w-lg text-sm md:text-base mt-3">
+              <p className="text-gray-500 leading-relaxed max-w-lg text-sm md:text-base mt-4">
                 Basta enviar um único e-mail e devolvemos <strong className="text-[#0a0a0a]">100% do seu investimento</strong>.{" "}
-                <strong className="text-[#ff0099]">E você ainda pode ficar com o produto!</strong>
+                <strong className="text-[#ff0099] block mt-2 text-base md:text-lg">E você ainda pode ficar com o produto!</strong>
               </p>
             </div>
           </RevealOnScroll>
