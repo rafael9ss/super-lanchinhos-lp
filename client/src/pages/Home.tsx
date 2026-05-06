@@ -492,14 +492,6 @@ export default function Home() {
                   </p>
                 </div>
 
-                {/* Citação */}
-                <div className="p-5 bg-white/10 border-2 border-white/20 rounded-2xl">
-                  <p className="text-white/80 italic text-sm md:text-base text-center">
-                    "Eu sei que não é o ideal, mas hoje vai assim mesmo…{" "}
-                    <span className="text-[#ff0099] font-bold not-italic">de novo.</span>"
-                  </p>
-                </div>
-
                 {/* Resolução */}
                 <div className="pt-2 text-center space-y-2">
                   <p className="text-[#ccff00] font-display font-bold text-base md:text-lg">
@@ -652,14 +644,6 @@ export default function Home() {
 
             </div>
           </RevealOnScroll>
-
-          <RevealOnScroll delay={0.3}>
-            <div className="mt-8 max-w-sm mx-auto">
-              <CTAButton onClick={scrollToOffer} variant="pink" className="w-full">
-                🔥 QUERO ADQUIRIR O MEU!
-              </CTAButton>
-            </div>
-          </RevealOnScroll>
         </div>
       </section>
 
@@ -764,6 +748,14 @@ export default function Home() {
               </motion.div>
             ))}
           </StaggerChildren>
+
+          <RevealOnScroll delay={0.3}>
+            <div className="mt-12 max-w-sm mx-auto">
+              <CTAButton onClick={scrollToOffer} variant="pink" className="w-full shadow-[6px_6px_0px_#ccff00]">
+                🔥 QUERO ADQUIRIR O MEU!
+              </CTAButton>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
