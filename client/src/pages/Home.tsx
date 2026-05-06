@@ -555,24 +555,88 @@ export default function Home() {
           </StaggerChildren>
 
           <RevealOnScroll delay={0.2}>
-            <div className="mt-12 bg-[#0a0a0a] rounded-3xl p-6 md:p-8 text-white max-w-3xl mx-auto border-4 border-[#0a0a0a]">
-              <h3 className="font-display font-bold text-lg md:text-xl mb-4 text-[#ccff00]">
-                Você consegue usar HOJE, mesmo se estiver exausta:
-              </h3>
-              <ul className="space-y-3">
+            <div className="mt-12 max-w-3xl mx-auto space-y-5">
+
+              {/* Headline */}
+              <div className="bg-[#0a0a0a] rounded-3xl p-6 md:p-8 text-white border-4 border-[#0a0a0a]">
+                <p className="text-[#ccff00] font-display font-bold text-[11px] uppercase tracking-[0.15em] mb-3">
+                  A real razão 🔍
+                </p>
+                <h3 className="font-display font-bold text-xl md:text-2xl leading-snug text-white mb-3">
+                  Entenda o que realmente dificulta a alimentação saudável do seu filho…
+                </h3>
+                <p className="text-white/60 text-sm md:text-base leading-relaxed">
+                  A verdade é que{" "}
+                  <strong className="text-white">não existe "a receita mágica".</strong>
+                  {" "}O que falta é um guia prático que equilibra{" "}
+                  <span className="text-[#ccff00] font-bold">3 coisas ao mesmo tempo:</span>
+                </p>
+              </div>
+
+              {/* 3 pilares */}
+              <div className="grid grid-cols-1 gap-4">
                 {[
-                  "Receitas com poucos ingredientes e modo de preparo em 3–5 passos.",
-                  "Sugestões prontas de combinações para café, lanche e jantar.",
-                  "Cardápios semanais para não precisar pensar no que fazer amanhã.",
+                  {
+                    emoji: "😋",
+                    label: "01",
+                    title: "Sabor que as crianças gostam",
+                    desc: "Para que elas realmente comam — sem birra, sem negociação, sem drama.",
+                    color: "#ccff00",
+                  },
+                  {
+                    emoji: "💪",
+                    label: "02",
+                    title: "Nutrição que o corpo precisa",
+                    desc: "Atua diretamente no desenvolvimento, imunidade e energia da criança.",
+                    color: "#ff0099",
+                  },
+                  {
+                    emoji: "⚡",
+                    label: "03",
+                    title: "Velocidade que sua rotina exige",
+                    desc: "Para que você consiga fazer — mesmo com a agenda cheia e o dia corrido.",
+                    color: "#ccff00",
+                  },
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="bg-[#ccff00] p-1 border-2 border-white shrink-0 rounded-full mt-0.5">
-                      <Check className="text-[#0a0a0a] w-3 h-3" />
+                  <motion.div
+                    key={i}
+                    variants={staggerItem}
+                    className="bg-[#0a0a0a] rounded-2xl p-5 flex items-start gap-4 border-2 border-white/10"
+                    style={{ transform: `rotate(${i % 2 === 0 ? -0.5 : 0.5}deg)` }}
+                  >
+                    <div className="shrink-0 flex flex-col items-center gap-1">
+                      <span
+                        className="font-display font-bold text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border"
+                        style={{ color: item.color, borderColor: item.color }}
+                      >
+                        {item.label}
+                      </span>
+                      <span className="text-2xl mt-1">{item.emoji}</span>
                     </div>
-                    <span className="text-white/90 text-sm leading-relaxed">{item}</span>
-                  </li>
+                    <div>
+                      <p className="font-bold text-white text-sm md:text-base leading-snug mb-1">
+                        ✅ {item.title}
+                      </p>
+                      <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
+
+              {/* Conclusão */}
+              <div className="bg-[#ccff00] rounded-3xl p-6 border-4 border-[#0a0a0a] text-center space-y-3" style={{ transform: "rotate(-0.5deg)" }}>
+                <p className="font-display font-bold text-[#0a0a0a] text-base md:text-lg leading-snug">
+                  O que você precisa é um material{" "}
+                  <span className="underline decoration-[#ff0099] decoration-4 underline-offset-2">completo, organizado</span>{" "}
+                  e <span className="bg-[#0a0a0a] text-[#ccff00] px-2 rounded-md">PRÁTICO</span>{" "}
+                  — adaptado para a rotina real das mães.
+                </p>
+                <p className="text-[#0a0a0a]/70 text-sm">
+                  É exatamente isso que você recebe no{" "}
+                  <strong className="text-[#0a0a0a]">Super Lanchinhos 💛</strong>
+                </p>
+              </div>
+
             </div>
           </RevealOnScroll>
 
