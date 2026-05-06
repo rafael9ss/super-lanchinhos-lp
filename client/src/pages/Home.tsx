@@ -280,23 +280,39 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: 0.3, ease: [0.175, 0.885, 0.32, 1.275] }}
                 className="text-[clamp(2.2rem,7vw,4.5rem)] font-bold leading-[0.95] mb-5 tracking-[-0.05em] text-[#0a0a0a]"
               >
-                Mais de{" "}
-                <span className="gradient-text">200 ideias de lanchinhos</span>
+                São mais de{" "}
+                <span className="gradient-text">200 receitas de lanchinhos</span>
                 <br />
-                simples e saudáveis —{" "}
+                Simples, gostosas e saudáveis —{" "}
                 <br />
-                porque cuidar de quem você ama não precisa ser complicado. 🍎
+                São receitas doces e salgadas de fácil preparo e que seu filho vai realmente comer.
               </motion.h1>
 
-              <motion.p
+              <motion.ul
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-base md:text-lg text-[#0a0a0a]/70 mb-8 max-w-md leading-relaxed"
+                className="text-base md:text-lg text-[#0a0a0a]/80 mb-8 max-w-md leading-relaxed space-y-2 font-medium"
               >
-                Em menos de <strong className="text-[#0a0a0a]">15 minutos</strong>, com ingredientes baratos e fáceis
-                de encontrar em qualquer mercado, você pode cuidar do seu filho mesmo com uma rotina corrida.
-              </motion.p>
+                <li className="flex items-start gap-2">
+                  <div className="bg-[#ccff00] p-0.5 border-2 border-[#0a0a0a] shrink-0 rounded-full mt-1">
+                    <Check className="text-[#0a0a0a] w-3 h-3" />
+                  </div>
+                  <span>Receitas com ingredientes baratos e que você tem em casa</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="bg-[#ccff00] p-0.5 border-2 border-[#0a0a0a] shrink-0 rounded-full mt-1">
+                    <Check className="text-[#0a0a0a] w-3 h-3" />
+                  </div>
+                  <span>Receitas que ficam prontas em 15 minutos</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="bg-[#ccff00] p-0.5 border-2 border-[#0a0a0a] shrink-0 rounded-full mt-1">
+                    <Check className="text-[#0a0a0a] w-3 h-3" />
+                  </div>
+                  <span>Subistituições - Receitas sem glúten, ovo e lactose</span>
+                </li>
+              </motion.ul>
 
               <div className="flex flex-col sm:flex-row gap-3 max-w-md">
                 <CTAButton onClick={scrollToOffer} variant="black" className="flex-1">
