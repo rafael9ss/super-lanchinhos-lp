@@ -769,24 +769,39 @@ export default function Home() {
             </div>
           </RevealOnScroll>
 
-          <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-            {[1, 2, 3, 4].map((num, i) => (
-              <motion.div
-                key={num}
-                variants={staggerItem}
-                className="brutal-card bg-white p-2 rounded-2xl hover:-translate-y-1"
-                style={{ transform: `rotate(${[-1.5, 0.5, -0.5, 1][i]}deg)` }}
+          <RevealOnScroll delay={0.2}>
+            <div className="max-w-6xl mx-auto">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
               >
-                {/* aspect-ratio reserva o espaço antes da imagem carregar, evitando layout shift */}
-                <div style={{ aspectRatio: '9/16' }} className="w-full rounded-xl overflow-hidden bg-gray-100">
-                  <img loading="lazy" decoding="async" src={`/images/depoimento-${num}.webp`}
-                    alt={`Depoimento real de mãe ${num}`}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
+                <CarouselContent className="-ml-4 md:-ml-6 py-4">
+                  {[1, 2, 3, 4].map((num, i) => (
+                    <CarouselItem key={num} className="pl-4 md:pl-6 basis-[80%] sm:basis-[60%] md:basis-1/3 lg:basis-1/4">
+                      <div 
+                        className="brutal-card bg-white p-3 rounded-3xl h-full flex flex-col group border-4 border-[#0a0a0a] transition-transform duration-300 hover:-translate-y-2 shadow-[6px_6px_0px_#0a0a0a] hover:shadow-[8px_8px_0px_#0a0a0a]" 
+                        style={{ transform: `rotate(${[-1.5, 1.5, -1, 1][i % 4]}deg)` }}
+                      >
+                        <div style={{ aspectRatio: '9/16' }} className="w-full rounded-2xl overflow-hidden bg-gray-100 border-2 border-[#0a0a0a]">
+                          <img loading="lazy" decoding="async" src={`/images/depoimento-${num}.webp`}
+                            alt={`Depoimento real de mãe ${num}`}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="flex justify-center gap-4 mt-8 md:mt-12 relative z-20">
+                  <CarouselPrevious className="static translate-y-0 w-12 h-12 md:w-14 md:h-14 border-4 border-[#0a0a0a] bg-white text-[#0a0a0a] shadow-[4px_4px_0px_#0a0a0a] hover:bg-[#ccff00] hover:translate-x-0 hover:translate-y-0 opacity-100 disabled:opacity-50" />
+                  <CarouselNext className="static translate-y-0 w-12 h-12 md:w-14 md:h-14 border-4 border-[#0a0a0a] bg-white text-[#0a0a0a] shadow-[4px_4px_0px_#0a0a0a] hover:bg-[#ccff00] hover:translate-x-0 hover:translate-y-0 opacity-100 disabled:opacity-50" />
                 </div>
-              </motion.div>
-            ))}
-          </StaggerChildren>
+              </Carousel>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
