@@ -422,22 +422,94 @@ export default function Home() {
 
       {/* ====== STAT CALLOUT ====== */}
       <section className="py-14 md:py-20 bg-white">
-        <div className="container mx-auto max-w-4xl px-4 text-center">
+        <div className="container mx-auto max-w-2xl px-4">
           <RevealOnScroll>
-            <div className="brutal-card bg-[#0a0a0a] text-white p-6 md:p-12 rounded-3xl" style={{ transform: "rotate(-0.5deg)" }}>
-              <img loading="lazy" decoding="async" src="/images/700-800.webp" alt="700 a 800 lanches por ano" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 shadow-[4px_4px_0px_#ccff00]" />
-              <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mt-4">
-                Oferecer apenas biscoitos, salgadinhos ou suco de caixinha tantas vezes pode afetar o desenvolvimento e a saúde dele.
-                Não é que você não se importa — <strong className="text-[#ccff00]">você só não tem tempo sobrando, nem cabeça para inventar lanche todos os dias.</strong>
-              </p>
-              <div className="mt-8 p-5 bg-white/10 border-2 border-white/20 rounded-2xl max-w-xl mx-auto">
-                <p className="text-white/80 italic text-sm md:text-base">
-                  "Eu sei que não é o ideal, mas hoje vai assim mesmo… <span className="text-[#ff0099] font-bold not-italic">de novo.</span>"
+            <div className="brutal-card bg-[#0a0a0a] text-white rounded-3xl overflow-hidden" style={{ transform: "rotate(-0.5deg)" }}>
+
+              {/* Imagem */}
+              <img loading="lazy" decoding="async" src="/images/700-800.webp" alt="700 a 800 lanches por ano" className="w-full rounded-t-3xl shadow-[0px_6px_0px_#ccff00]" />
+
+              {/* Corpo da copy */}
+              <div className="p-6 md:p-10 space-y-5 text-left">
+
+                {/* Pergunta de abertura */}
+                <p className="text-white font-bold text-base md:text-lg leading-snug">
+                  Você já parou para pensar no que acontece quando o lanche vira sempre a mesma coisa?
                 </p>
+
+                {/* Parágrafo 1 */}
+                <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                  Aquela bolacha na mochila. O salgadinho que mata a fome rápido. O suquinho de caixinha que ele pede. Tudo ultraprocessado — porque é fácil, prático, e funciona.
+                </p>
+
+                {/* Parágrafo 2 */}
+                <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                  Você sabe que não é o ideal. Mas com a rotina corrida e a cabeça cheia, acaba sendo a solução que cabe na vida real.
+                </p>
+
+                {/* Destaque emocional */}
+                <p className="text-white/90 text-sm md:text-base leading-relaxed font-medium">
+                  Não é falta de amor. Você se importa — demais, inclusive.<br />
+                  <span className="text-[#ccff00] font-bold">Mas a realidade da rotina é outra.</span>
+                </p>
+
+                {/* Transição */}
+                <p className="text-white/60 text-sm md:text-base leading-relaxed">
+                  O problema é que essa "solução rápida de hoje" pode virar um hábito que custa caro amanhã.
+                </p>
+
+                {/* Subhead de consequências */}
+                <p className="text-[#ff0099] font-display font-bold text-base md:text-lg pt-2">
+                  Até as consequências aparecerem…
+                </p>
+
+                {/* Bullets de consequências */}
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-2xl p-4">
+                    <span className="text-xl shrink-0">👎🏻</span>
+                    <p className="text-sm md:text-base text-white/80 leading-relaxed">
+                      <strong className="text-white">O paladar fica cada vez mais seletivo.</strong> Ele come só aqueles 3–4 alimentos conhecidos. Oferecer algo novo vira uma luta diária.
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-2xl p-4">
+                    <span className="text-xl shrink-0">👎🏻</span>
+                    <p className="text-sm md:text-base text-white/80 leading-relaxed">
+                      <strong className="text-white">O corpo não recebe nutrientes essenciais.</strong> Imunidade baixa, energia fraca, crescimento mais lento. Você vê isso no dia a dia dele.
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-2xl p-4">
+                    <span className="text-xl shrink-0">👎🏻</span>
+                    <p className="text-sm md:text-base text-white/80 leading-relaxed">
+                      <strong className="text-white">O humor piora.</strong> Criança mal alimentada é criança irritada e cansada — e isso afeta a escola, a brincadeira e a convivência com você.
+                    </p>
+                  </li>
+                </ul>
+
+                {/* Agravante */}
+                <div className="bg-[#ff0099]/10 border-2 border-[#ff0099]/30 rounded-2xl p-4">
+                  <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                    <strong className="text-[#ff0099]">E o pior de tudo:</strong> esses hábitos grudam. Seu filho carrega isso para a adolescência, para a vida adulta — uma relação difícil com comida e uma saúde que poderia ter sido melhor.
+                  </p>
+                </div>
+
+                {/* Citação */}
+                <div className="p-5 bg-white/10 border-2 border-white/20 rounded-2xl">
+                  <p className="text-white/80 italic text-sm md:text-base text-center">
+                    "Eu sei que não é o ideal, mas hoje vai assim mesmo…{" "}
+                    <span className="text-[#ff0099] font-bold not-italic">de novo.</span>"
+                  </p>
+                </div>
+
+                {/* Resolução */}
+                <div className="pt-2 text-center space-y-2">
+                  <p className="text-[#ccff00] font-display font-bold text-base md:text-lg">
+                    Então nasceu o Super Lanchinhos 💛
+                  </p>
+                  <p className="text-white/60 text-sm leading-relaxed max-w-sm mx-auto">
+                    Para mães que se importam genuinamente, mas precisam de uma solução que caiba na vida real — rápida, fácil, nutritiva, e que o pequeno realmente <strong className="text-white">quer comer</strong>.
+                  </p>
+                </div>
               </div>
-              <p className="mt-6 text-[#ccff00] font-display font-bold text-base md:text-lg">
-                O Super Lanchinhos foi criado justamente para essas mães 💛
-              </p>
             </div>
           </RevealOnScroll>
 
