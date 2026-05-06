@@ -509,6 +509,19 @@ export default function Home() {
                     Para mães que se importam genuinamente, mas precisam de uma solução que caiba na vida real — rápida, fácil, nutritiva, e que o pequeno realmente <strong className="text-white">quer comer</strong>.
                   </p>
                 </div>
+
+                {/* Colagem de Fotos */}
+                <div className="pt-6 pb-2">
+                  <div className="rounded-2xl overflow-hidden border-4 border-[#0a0a0a] shadow-[0px_4px_0px_#ccff00] rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <img 
+                      loading="lazy" 
+                      decoding="async" 
+                      src="/images/collage-criancas.webp" 
+                      alt="Crianças comendo lanchinhos saudáveis e práticos" 
+                      className="w-full h-auto object-cover" 
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </RevealOnScroll>
