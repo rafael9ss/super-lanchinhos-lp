@@ -854,12 +854,12 @@ export default function Home() {
                   </ul>
 
                   <div className="text-center mt-auto mb-5 w-full">
-                    <div className="flex justify-center items-baseline">
-                      <span className="text-xl font-bold text-[#0a0a0a] mr-1 font-display">R$</span>
-                      <span className="text-5xl font-bold text-[#0a0a0a] tracking-tighter leading-none font-display">17</span>
-                      <span className="text-xl font-bold text-[#0a0a0a] font-display">,90</span>
+                    <div className="flex justify-center items-baseline text-[#1ebe5a]">
+                      <span className="text-xl font-bold mr-1 font-display">R$</span>
+                      <span className="text-5xl font-bold tracking-tighter leading-none font-display">17</span>
+                      <span className="text-xl font-bold font-display">,90</span>
                     </div>
-                    <p className="text-gray-400 text-xs mt-1">Ou 12x de R$ 1,85</p>
+                    <p className="text-gray-400 font-bold text-xs mt-1">Ou 12x de R$ 1,85</p>
                   </div>
 
                   <CTAButton onClick={() => setUpsellOpen(true)} variant="white" className="w-full">
@@ -912,13 +912,16 @@ export default function Home() {
 
                   {/* Price with strikethrough */}
                     <div className="flex flex-col items-center">
-                      <div className="flex justify-center items-baseline">
-                        <span className="text-2xl font-bold text-white mr-2 font-display">12x de</span>
-                        <span className="text-xl font-bold text-white mr-1 font-display uppercase">R$</span>
-                        <span className="text-7xl font-bold text-white tracking-tighter leading-none font-display">3</span>
-                        <span className="text-2xl font-bold text-white font-display">,92</span>
+                      <div className="mb-2 text-white font-bold font-display text-lg">
+                        de <span className="line-through decoration-red-600 decoration-[3px] text-red-500">R$ 99,90</span> por:
                       </div>
-                      <p className="text-white font-bold text-xs mt-2 uppercase tracking-widest opacity-80">Ou R$ 37,90 à vista</p>
+                      <div className="flex justify-center items-baseline text-[#25D366]">
+                        <span className="text-2xl font-bold mr-2 font-display">12x de</span>
+                        <span className="text-xl font-bold mr-1 font-display uppercase">R$</span>
+                        <span className="text-7xl font-bold tracking-tighter leading-none font-display">3</span>
+                        <span className="text-2xl font-bold font-display">,92</span>
+                      </div>
+                      <p className="text-[#25D366] font-bold text-xs mt-2 uppercase tracking-widest opacity-90">Ou R$ 37,90 à vista</p>
                     </div>
 
                       <div className="mt-3 bg-[#ff0099]/20 border border-[#ff0099]/40 rounded-xl p-2.5">
