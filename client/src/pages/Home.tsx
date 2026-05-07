@@ -288,31 +288,42 @@ export default function Home() {
                 São receitas doces e salgadas de fácil preparo e que seu filho vai realmente comer.
               </motion.h1>
 
-              <motion.ul
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-base md:text-lg text-[#0a0a0a]/80 mb-8 max-w-md leading-relaxed space-y-2 font-medium"
+                className="text-base md:text-lg text-[#0a0a0a]/70 mb-6 max-w-md leading-relaxed"
               >
-                <li className="flex items-start gap-2">
-                  <div className="bg-[#ccff00] p-0.5 border-2 border-[#0a0a0a] shrink-0 rounded-full mt-1">
-                    <Check className="text-[#0a0a0a] w-3 h-3" />
-                  </div>
-                  <span>Receitas com ingredientes baratos e que você tem em casa</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="bg-[#ccff00] p-0.5 border-2 border-[#0a0a0a] shrink-0 rounded-full mt-1">
-                    <Check className="text-[#0a0a0a] w-3 h-3" />
-                  </div>
-                  <span>Receitas que ficam prontas em 15 minutos</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="bg-[#ccff00] p-0.5 border-2 border-[#0a0a0a] shrink-0 rounded-full mt-1">
-                    <Check className="text-[#0a0a0a] w-3 h-3" />
-                  </div>
-                  <span>Subistituições - Receitas sem glúten, ovo e lactose</span>
-                </li>
-              </motion.ul>
+                Em menos de <strong className="text-[#0a0a0a]">15 minutos</strong>, com ingredientes baratos e fáceis
+                de encontrar em qualquer mercado, você pode cuidar do seu filho mesmo com uma rotina corrida.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.65 }}
+                className="mb-8 max-w-md"
+              >
+                <div className="bg-[#0a0a0a]/8 border-2 border-[#0a0a0a]/15 rounded-2xl p-4 space-y-3">
+                  {[
+                    { label: "Ingredientes baratos", desc: "que você já tem em casa" },
+                    { label: "Prontas em 15 minutos", desc: "receitas rápidas do dia a dia" },
+                    { label: "Substituições inclusivas", desc: "receitas sem glúten, ovo e lactose" },
+                    { label: "Mini-videoaulas", desc: "receitinhas ensinadas direto ao ponto 🎬" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="shrink-0 w-6 h-6 bg-[#0a0a0a] border-2 border-[#0a0a0a] rounded-full flex items-center justify-center shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">
+                        <Check className="text-[#ccff00] w-3.5 h-3.5" strokeWidth={3} />
+                      </div>
+                      <p className="text-[#0a0a0a] text-sm leading-snug">
+                        <strong className="font-bold">{item.label}</strong>
+                        {" – "}
+                        <span className="text-[#0a0a0a]/70">{item.desc}</span>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
 
               <div className="flex flex-col sm:flex-row gap-3 max-w-md">
                 <CTAButton onClick={scrollToOffer} variant="black" className="flex-1">
