@@ -340,9 +340,15 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
                 className="relative w-full max-w-[420px]"
               >
+                  <div className="bg-[#0a0a0a] p-4 rounded-t-3xl border-4 border-b-0 border-[#0a0a0a]">
+                    <p className="text-center font-display font-black text-[#ccff00] text-2xl md:text-3xl leading-tight tracking-[-0.03em] uppercase">
+                      + de 200 receitinhas de<br/>
+                      <span className="text-white">Lanchinhos Saudáveis</span>
+                    </p>
+                  </div>
                   <div
                     ref={vtubrContainerRef}
-                    className="brutal-card rounded-3xl overflow-hidden border-[#0a0a0a] bg-black min-h-[220px]"
+                    className="brutal-card rounded-b-3xl overflow-hidden border-4 border-[#0a0a0a] bg-black min-h-[220px]"
                   >
                     <vturb-smartplayer id="vid-69f67dbb2cdb6c72eb24b1cc" style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }} />
                   </div>
@@ -352,9 +358,7 @@ export default function Home() {
                   </CTAButton>
                 </div>
               </motion.div>
-              <Sticker emoji="🥑" className="top-[-10px] right-[10%] md:right-[5%]" />
-              <Sticker emoji="🧁" className="bottom-[10%] left-[-5%] md:left-[0%]" delayed />
-              <Sticker emoji="⭐" className="top-[20%] right-[-5%] md:right-[-10%]" />
+
             </div>
           </div>
         </div>
@@ -535,6 +539,33 @@ export default function Home() {
                 🔥 QUERO ADQUIRIR O MEU!
               </CTAButton>
             </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ====== BLOCO 04 — URGÊNCIA + BOTÃO ====== */}
+      <section className="py-14 md:py-20 bg-[#ccff00] border-y-4 border-[#0a0a0a] relative overflow-hidden">
+        <div className="absolute top-[-60px] right-[-60px] w-72 h-72 rounded-full bg-[#ff0099]/20 blur-[80px]" />
+        <div className="container mx-auto max-w-3xl px-4 relative z-10 text-center">
+          <RevealOnScroll>
+            <span className="inline-block bg-[#0a0a0a] text-[#ccff00] font-display font-bold text-[11px] uppercase tracking-[0.15em] px-5 py-2 mb-6 border-4 border-[#0a0a0a] rounded-full shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+              ⚡ acesso liberado imediatamente
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-[#0a0a0a] mb-4 font-display">
+              Acesse ainda hoje<br />
+              <span className="bg-[#0a0a0a] text-[#ccff00] px-3 inline-block mt-2 rotate-[-1deg]">sem enrolação.</span>
+            </h2>
+            <p className="text-[#0a0a0a]/70 text-base md:text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+              Assim que o pagamento for confirmado, você recebe o acesso <strong className="text-[#0a0a0a]">na hora</strong> — pelo celular, tablet ou computador.
+            </p>
+            <div className="max-w-sm mx-auto">
+              <CTAButton onClick={scrollToOffer} variant="black" className="w-full shadow-[6px_6px_0px_rgba(0,0,0,0.3)]">
+                🔥 QUERO ADQUIRIR O MEU AGORA!
+              </CTAButton>
+            </div>
+            <p className="mt-4 text-[#0a0a0a]/60 text-xs font-display lowercase">
+              🔒 compra 100% segura &nbsp;•&nbsp; 30 dias de garantia &nbsp;•&nbsp; acesso imediato
+            </p>
           </RevealOnScroll>
         </div>
       </section>
